@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inventario - Las Mezcladitas</title>
+        <link rel="stylesheet" href="../css/global_styles.css">
+        <link rel="stylesheet" href="../css/inventario_ventas.css">
+    </head>
+    <body>
+        <aside class="sidebar">
+            <h2 class="logo">Las Mezlcaditas</h2>
+            <ul class="menu">
+            <li><a href="dashboard.html">Inicio</a></li>
+            <li><a href="inventario.html">Inventario</a></li>
+            <li><a href="ventas.html">Ventas</a></li>
+            <li class="logout" onclick="logOut()">Cerrar sesión</li>
+            </ul>
+        </aside>
+
+        <div class="main">
+            <header class="topbar">
+                <h2>Inventario</h2>
+                <h2>Bienvenid@, <span id="nombre"></span></h2>
+            </header>
+            <a href="post_producto.html"><button class="btn-top">+ Nuevo producto</button></a>
+            <input id="buscador" type="text" oninput="buscarProducto()" placeholder="Buscar Producto ..." class="buscador">
+            <div class="tabla-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Categoria</th>  
+                            <th>Nombre</th>
+                            <th>Marca</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla_inventario">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <script src="../js/logout.js"></script>
+    <script src="../js/inventario.js"></script>
+</body>
+</html>

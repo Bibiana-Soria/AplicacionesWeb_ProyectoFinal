@@ -1,0 +1,106 @@
+button{
+  padding: 10px 15px;
+  background: #8968ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-weight:bold
+}
+
+button:hover{
+  background: #744ffb;
+}
+
+.tabla-container{
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead{
+  background: #8968ff;
+  color: white;
+}
+
+th{
+  padding: 12px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+td{
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.eliminar{
+  background: #ff4d4d;
+  color: white;
+  padding:7px;
+}
+
+.eliminar:hover{
+  background-color: #fa1111;
+}
+.editar{
+  background: #8968ff;
+  color: white;
+  padding: 7px;
+}
+.editar:hover{
+  background-color: rebeccapurple;
+}
+
+.buscador {
+  padding: 10px 15px;
+  border: 1px;
+  border-radius: 6px;
+  width: 250px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.buscador:focus {
+  border-color: #744ffb;
+  box-shadow: 0 0 5px rgba(137, 104, 255, 0.4);
+}
+
+
+@media(max-width: 768px){
+  body {
+    flex-direction: column; 
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .menu {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+    .tabla-container {
+        overflow-x: auto;
+    }
+
+    #buscador {
+        width: 100%;
+    }
+
+    button {
+        padding: 7px 10px;
+        font-size: 0.8rem;
+    }
+}

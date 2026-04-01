@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Modificar Venta - Las Mezcladitas</title>
+        <link rel="stylesheet" href="../css/global_styles.css">
+        <link rel="stylesheet" href="../css/post.css">
+        <link rel="stylesheet" href="../css/inventario_ventas.css">
+    </head>
+    <body>
+        <aside class="sidebar">
+            <h2 class="logo">Las Mezlcaditas</h2>
+            <ul class="menu">
+            <li><a href="dashboard.html">Inicio</a></li>
+            <li><a href="inventario.html">Inventario</a></li>
+            <li><a href="ventas.html">Ventas</a></li>
+            <li class="logout" onclick="logOut()">Cerrar sesión</li>
+            </ul>
+        </aside>
+        <div class="main">
+            <header class="topbar">
+                <h2>Modificar Venta</h2>
+            </header>
+            <label>Venta Seleccionada</label>
+            <div class="tabla-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>ID de Usuario</th>  
+                            <th>ID de Producto</th>
+                            <th>Nombre</th>
+                            <th>Categoria</th>
+                            <th>Unidades Vendidas</th>
+                            <th>Total</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla_ventas">
+                    </tbody>
+                </table>
+            </div>
+            <div class="campo">
+                <label>Cantidad: </label>
+                <input type="number" id="cantidad" placeholder="Ingresar cantidad nueva">
+                <input type="hidden" id="precio">
+            </div>
+            <button class="crear" onclick=modificarVenta()>Guardar Cambios</button>
+        </div>
+        <script src="../js/logout.js"></script>
+        <script src="../js/put_venta.js"></script>
+    </body>
+</html> 

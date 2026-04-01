@@ -1,0 +1,42 @@
+.campo {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-left: 0;
+    margin-bottom: 10px;
+    color: #444;
+    font-size: large;
+    margin-top: 10px;
+}
+
+input {
+    width: 50%;
+    padding: 0.7rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #a48bff;
+    outline: none;
+}
+
+.crear{
+  padding: 10px 15px;
+  background: #8968ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.crear:hover{
+  background: #744ffb;
+}

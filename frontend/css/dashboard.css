@@ -1,0 +1,50 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  gap: 20px;
+}
+.card {
+  background-color: white; 
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e1dbf5; 
+}
+.card h3 {
+  margin-bottom: 10px;
+  color: #2a204e; 
+}
+.card p {
+  font-size: 14px;
+  color: #6b5a94; 
+  line-height: 1.4;
+}
+.card button {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  background-color: #8968ff; 
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.card button:hover {
+  background-color: #744ffb; 
+}
+
+@media(max-width: 768px){
+  body {
+    flex-direction: column; 
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .menu {
+    margin-bottom: 10px;
+  }
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Inicio - Las Mezlcaditas</title>
+        <link rel="stylesheet" href="../css/global_styles.css">
+        <link rel="stylesheet" href="../css/dashboard.css">
+    </head>
+    <body>
+        <aside class="sidebar">
+            <h2 class="logo">Las Mezlcaditas</h2>
+            <ul class="menu">
+            <li><a href="dashboard.html">Inicio</a></li>
+            <li><a href="inventario.html">Inventario</a></li>
+            <li><a href="ventas.html">Ventas</a></li>
+            <li class="logout" onclick="logOut()">Cerrar sesión</li>
+            </ul>
+        </aside>
+        <div class="main">
+            <header class="topbar">
+                <h2>Inicio</h2>
+                <h2>Bienvenid@, <span id="nombre"></span></h2>
+            </header>
+            <div class="cards">
+                <div class="card">
+                    <h3>Inventario</h3>
+                    <p>Gestión de productos registrados en el sistema.</p>
+                    <a href="inventario.html"><button>Ver módulo</button></a>
+                </div>
+
+                <div class="card">
+                    <h3>Ventas</h3>
+                    <p>Registro y consulta de ventas realizadas.</p>
+                    <a href="ventas.html"><button>Ver módulo</button></a>
+                </div>
+
+            </div>
+        </div>
+        <script src="../js/logout.js"></script>
+        <script src="../js/dashboard.js"></script>
+        <script>obtenerUsuario()</script>
+    </body>
+    
+</html>

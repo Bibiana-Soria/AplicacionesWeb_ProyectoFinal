@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=width-device initial-scale=1.0">
+        <title>Registro - Las Mezlcaditas</title>
+        <link rel="stylesheet" href="../css/login_usuario.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Bienvenid@</h1>
+            <h2> Registro de usuario</h2>
+            <div class="campo">
+                <label>Nombre</label>
+                <input type="text" id="nombre" placeholder="Nombre">
+            </div>
+            <div class="campo">
+                <label>Apellidos</label>
+                <input type="text" id="apellidos" placeholder="Apellidos">
+            </div>
+            <div class="campo">
+                <label>Correo</label>
+                <input type="email" id="email" placeholder="correo@sitio.com">
+            </div>
+            <div class="campo">
+                <label>Contraseña</label>
+                <input type="password" id="contrasena" placeholder="********">
+            </div>
+            <button id="btn-registro" onclick=crearUsuario()>Crear cuenta</button>
+            <p>Ya tienes una cuenta? <a href="../index.html">Inicia Sesión</a></p>
+        </div>
+        <script src="../js/usuario.js"></script>
+    </body>
+</html>
