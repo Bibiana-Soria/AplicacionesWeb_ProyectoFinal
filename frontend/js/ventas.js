@@ -9,10 +9,15 @@ function cargarVentas(){
     .then(data=>{ventas = data, mostrarVentasTabla(data)})
     .catch(err=> console.error(err))
 }
+
 function mostrarVentasTabla(data){
     const tabla = document.getElementById('tabla_ventas')
     tabla.innerHTML=""
         data.forEach(venta => {
+            const acciones = user_rol === 'admin' ? `
+            <button class="editar" onclick="irModificar(${venta.id})">Modificar</button>
+            <button class="eliminar" onclick="irEliminar(${venta.id})">Eliminar</button>
+        ` : '';
             const fila = `
               <tr>
                 <td>${venta.id}</td>
@@ -23,16 +28,14 @@ function mostrarVentasTabla(data){
                 <td>${venta.unidades_vendidas}</td>
                 <td>${venta.total}</td>
                 <td>${new Date(venta.fecha).toLocaleDateString()}</td>
-                <td>
-                <button class="editar" onclick="irModificar(${venta.id})">Modificar</button>
-                <button class="eliminar" onclick="irEliminar(${venta.id})">Eliminar</button>
-                </td>
+                <td>${acciones}</td>
               </tr>
             `;
             tabla.innerHTML+= fila
             
         });
 }
+
 function obtenerUsuario() {
     fetch(URL + '/perfil', {
         method: 'GET',
@@ -46,8 +49,15 @@ function obtenerUsuario() {
     })
     .then(usuario => {
         console.log("Usuario identificado:", usuario);
-        document.getElementById('nombre').innerText = 
-             ` ${usuario.nombre} ${usuario.apellidos}`;
+        document.getElementById('nombre').innerText = ` ${usuario.nombre} ${usuario.apellidos}`;
+        user_rol = usuario.rol
+        cargarVentas()
+        if(usuario.rol!=="admin"){
+            document.querySelectorAll('.editar, .eliminar').forEach(btn=> btn.style.display = 'none')
+        }
+        if(usuario.rol === 'admin'){
+            document.getElementById('menu_usuarios').style.display = 'block';
+        }
     })
     .catch(err => {
         console.error(err.message);
@@ -84,4 +94,5 @@ function buscarVenta(){
     )
     mostrarVentasTabla(ventas_filtradas)
 }
-document.addEventListener('DOMContentLoaded',cargarVentas(), obtenerUsuario())
+
+document.addEventListener('DOMContentLoaded',obtenerUsuario())

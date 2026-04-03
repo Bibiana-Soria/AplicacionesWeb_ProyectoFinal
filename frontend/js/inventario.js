@@ -14,6 +14,10 @@ function mostrarProductosTabla(data){
   const tabla = document.getElementById("tabla_inventario");
   tabla.innerHTML = ""; 
     data.forEach(producto => {
+      const acciones = user_rol === 'admin' ? `
+      <button class="editar" onclick="irModificar(${producto.id})">Modificar</button>
+      <button class="eliminar" onclick="irEliminar(${producto.id})">Eliminar</button>
+  ` : '';
 
       const fila = `
         <tr>
@@ -24,10 +28,7 @@ function mostrarProductosTabla(data){
           <td>${producto.descripcion}</td>
           <td>$${producto.precio}</td>
           <td>${producto.existencia}</td>
-          <td>
-          <button class="editar" onclick="irModificar(${producto.id})">Modificar</button>
-          <button class="eliminar" onclick=irEliminar(${producto.id})>Eliminar</button>
-          </td>
+          <td>${acciones}</td>
         </tr>
       `;
 
@@ -50,8 +51,16 @@ function obtenerUsuario() {
     })
     .then(usuario => {
         console.log("Usuario identificado:", usuario);
-        document.getElementById('nombre').innerText = 
-             `${usuario.nombre} ${usuario.apellidos}`;
+        document.getElementById('nombre').innerText = `${usuario.nombre} ${usuario.apellidos}`;
+        user_rol = usuario.rol
+        cargarProductos()
+        if(usuario.rol !== 'admin'){
+          document.querySelectorAll('.editar, .eliminar')
+          .forEach(btn => btn.style.display = 'none');
+        }
+        if(usuario.rol === 'admin'){
+          document.getElementById('menu_usuarios').style.display = 'block';
+        }
     })
     .catch(err => {
         console.error(err.message);
@@ -92,4 +101,4 @@ function buscarProducto(){
   )
   mostrarProductosTabla(productos_filtrados)
 }
-document.addEventListener('DOMContentLoaded', cargarProductos(), obtenerUsuario());
+document.addEventListener('DOMContentLoaded', obtenerUsuario());

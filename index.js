@@ -184,7 +184,8 @@ app.post('/login', (req, res)=>{
             req.session.usuario={
                 id: usuario.id,
                 nombre: usuario.nombre,
-                apellidos: usuario.apellidos
+                apellidos: usuario.apellidos,
+                rol: usuario.rol
             }
             res.send('Login correcto')
         }else{
@@ -203,4 +204,42 @@ app.get('/perfil', (req, res)=>{
 app.get('/logout', (req, res)=>{
     req.session.destroy();
     res.send('Sesion cerrada bai')
+})
+
+// administrar usuarios
+
+app.get('/usuarios', (req,res)=>{
+    const sql = 'SELECT id, nombre, apellidos, email, rol FROM sesion';
+    bd.query(sql, (err, results)=> {
+        if (err){
+            return res.status(500).send(err)
+        }
+        res.json(results)
+    })
+})
+
+app.delete('/usuarios/:id', (req, res)=>{
+    const {id} = req.params;
+    const sql = 'DELETE FROM sesion WHERE id =?';
+    bd.query(sql, [id], (err, results)=>{
+        if(err){
+            return res.status(500).send(err)
+        }
+        if(results.affectedRows===0){
+            return res.send('Usuario no encontrado')
+        }
+        res.send('Usuario eliminado')
+    })
+})
+
+app.put('/usuarios/:id', (req, res)=>{
+    const {id} = req.params;
+    const {rol} = req.body;
+    const sql = 'UPDATE sesion SET rol =? WHERE id =?';
+    bd.query(sql, [rol,id], (err, results)=>{
+        if (err){
+            return res.status(500).send(err)
+        }
+        res.send('Usuario actualizado')
+    })
 })

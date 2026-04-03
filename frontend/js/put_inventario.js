@@ -2,7 +2,6 @@ const URL = 'http://127.0.0.1:3000';
 const params = new URLSearchParams(window.location.search)
 const id = params.get("id")
 
-
 function obtenerDatos(id){
   fetch(URL + '/inventario/' + id,{
     method: 'GET',
@@ -33,7 +32,7 @@ function obtenerDatos(id){
   })
   .catch(err=> console.error('Error cargando el producto', err))
 }
-document.addEventListener("DOMContentLoaded", ()=> obtenerDatos(id))
+
 function modificarProducto(){
     const datos_producto = {
       categoria:   document.getElementById("categoria").value,
@@ -61,3 +60,4 @@ function modificarProducto(){
         alert('Error al actualizar producto');
     });
 }
+document.addEventListener("DOMContentLoaded", ()=> obtenerDatos(id))

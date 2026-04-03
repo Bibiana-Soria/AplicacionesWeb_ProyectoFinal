@@ -31,7 +31,6 @@ function cargarProductos(){
   .catch(err => console.error(err));
 }
 
-document.addEventListener('DOMContentLoaded', cargarProductos);
 function crearVenta() {
     const id_producto = document.getElementById('id_producto').value;
     const unidades_vendidas = document.getElementById('unidades_vendidas').value;
@@ -103,3 +102,5 @@ function crearVenta() {
     })
     .catch(err => console.error(err));
 }
+
+document.addEventListener('DOMContentLoaded', cargarProductos);

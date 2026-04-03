@@ -36,7 +36,6 @@ function obtenerDatos(id){
     })
     .catch(err=> console.error("Error cargando las ventas", err))
 }
-document.addEventListener("DOMContentLoaded", obtenerDatos(id))
 
 function modificarVenta(){
     const unidades_vendidas = document.getElementById('cantidad').value
@@ -66,3 +65,5 @@ function modificarVenta(){
         alert('Error al actualizar venta');
     });
 }
+
+document.addEventListener("DOMContentLoaded", obtenerDatos(id))

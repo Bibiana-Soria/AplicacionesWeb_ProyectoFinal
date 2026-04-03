@@ -4,7 +4,7 @@ function logOut(){
         credentials: 'include'
     })
     .then(
-        window.location.href= '../index.html'
+        ()=>{ window.location.href = '../index.html';}
     )
     .catch(err=> console.error('Error al cerrar sesion', err))
 }
