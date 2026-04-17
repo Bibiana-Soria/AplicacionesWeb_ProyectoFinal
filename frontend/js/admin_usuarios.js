@@ -94,8 +94,12 @@ function obtenerUsuario(){
     .then(res => res.json())
     .then(usuario => {
         document.getElementById('nombre').innerText = `${usuario.nombre} ${usuario.apellidos}`
+        if(usuario.rol === 'admin'){
+            document.getElementById('menu_usuarios').style.display = 'block';
+        }
     })
     .catch(err => console.error(err))
+    
 }
 
 document.addEventListener('DOMContentLoaded', obtenerUsuario(), cargarUsuarios())
